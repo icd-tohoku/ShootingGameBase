@@ -286,6 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c12ad10499de7154794a497a9eb5df7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scrollSpeed: 1
 --- !u!1 &872545725
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,8 +368,9 @@ GameObject:
   - component: {fileID: 1503307996}
   - component: {fileID: 1503307995}
   - component: {fileID: 1503307994}
+  - component: {fileID: 1503307998}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -447,6 +449,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &1503307998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503307993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0516ff1d40c7bf4fb28edfc89c15dc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
 --- !u!1 &1880342267
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,6 +538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c12ad10499de7154794a497a9eb5df7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scrollSpeed: 1
 --- !u!212 &1935328014
 SpriteRenderer:
   m_ObjectHideFlags: 0
