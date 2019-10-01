@@ -20,7 +20,7 @@ namespace UI
             {
                 Fire();
             }
-        
+            
             if (Input.GetKey(KeyCode.Space))
             {
                 if (_currentPressingTime > continuousShootingInterval)
