@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Systems
+namespace Shooting.Systems
 {
     /// <summary>
     /// Componentの拡張

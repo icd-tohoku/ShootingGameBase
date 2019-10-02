@@ -1,7 +1,5 @@
-﻿using ARrietty.Systems;
-using UnityEngine;
-
-namespace Systems
+﻿
+namespace Shooting.Systems
 {
     public class GameData : SingletonMonoBehaviour<GameData>
     {

@@ -1,8 +1,8 @@
 ﻿using System;
-using Systems;
 using UnityEngine;
+using Shooting.Systems;
 
-namespace Fields
+namespace Shooting.Fields
 {
     public class Enemy : MonoBehaviour
     {

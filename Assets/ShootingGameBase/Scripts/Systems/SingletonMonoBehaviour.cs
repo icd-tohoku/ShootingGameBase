@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace ARrietty.Systems
+namespace Shooting.Systems
 {
     public abstract class SingletonMonoBehaviour<T> : MonoBehaviour where T : MonoBehaviour
     {

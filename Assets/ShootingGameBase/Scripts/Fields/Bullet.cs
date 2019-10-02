@@ -1,8 +1,8 @@
 ﻿using System.Collections;
-using Systems;
 using UnityEngine;
+using Shooting.Systems;
 
-namespace Fields
+namespace Shooting.Fields
 {
     [RequireComponent(typeof(Collider))]
     public class Bullet : MonoBehaviour

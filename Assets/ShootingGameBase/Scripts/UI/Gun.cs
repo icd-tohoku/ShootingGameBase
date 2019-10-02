@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace UI
+namespace Shooting.UI
 {
     public class Gun : MonoBehaviour
     {

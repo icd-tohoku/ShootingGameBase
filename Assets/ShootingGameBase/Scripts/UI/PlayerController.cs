@@ -1,8 +1,7 @@
 ﻿using System;
-using Systems;
 using UnityEngine;
 
-namespace UI
+namespace Shooting.UI
 {
     public class PlayerController : MonoBehaviour
     {

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Data;
 using System.Timers;
-using Systems;
 using UnityEngine;
+using Shooting.Systems;
 
-namespace Fields
+namespace Shooting.Fields
 {
     public class EnemyFactory : MonoBehaviour
     {

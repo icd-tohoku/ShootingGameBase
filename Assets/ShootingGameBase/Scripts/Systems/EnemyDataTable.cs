@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Data;
 using UnityEngine;
 
-namespace Systems
+namespace Shooting.Systems
 {
     [CreateAssetMenu]
     public class EnemyDataTable : ScriptableObject

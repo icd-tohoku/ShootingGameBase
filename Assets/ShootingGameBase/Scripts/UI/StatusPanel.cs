@@ -1,9 +1,9 @@
 ﻿using System;
-using Systems;
 using UnityEngine;
 using UnityEngine.UI;
+using Shooting.Systems;
 
-namespace UI
+namespace Shooting.UI
 {
     public class StatusPanel : MonoBehaviour
     {

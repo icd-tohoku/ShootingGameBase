@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Systems
+namespace Shooting.Systems
 {
     public static class EventManager
     {

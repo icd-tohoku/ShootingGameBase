@@ -1,7 +1,7 @@
-﻿using Systems;
-using UnityEngine;
+﻿using UnityEngine;
+using Shooting.Systems;
 
-namespace Fields
+namespace Shooting.Fields
 {
     [RequireComponent(typeof(SpriteRenderer))]
     public class BackgroundScroller : MonoBehaviour
