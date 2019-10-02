@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using Systems;
+using UnityEngine;
 
 namespace UI
 {
@@ -17,33 +19,32 @@ namespace UI
         private void PositionUpdate()
         {
             // 上矢印が押されたら
-            if (Input.GetKey(KeyCode.UpArrow))
+            if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
             {
                 // 上に移動
                 transform.Translate(0.1f * moveSpeed, 0, 0);
             }
         
             // 下矢印が押されたら
-            if (Input.GetKey(KeyCode.DownArrow))
+            if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
             {
                 // 下に移動
                 transform.Translate(-0.1f * moveSpeed, 0, 0);
             }
 
             // 右矢印が押されたら
-            if (Input.GetKey(KeyCode.RightArrow))
+            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
             {
                 // 右に移動
                 transform.Translate(0, -0.1f * moveSpeed, 0);
             }
         
             // 左矢印が押されたら
-            if (Input.GetKey(KeyCode.LeftArrow))
+            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
             {
                 // 左に移動
                 transform.Translate(0, 0.1f * moveSpeed, 0);
             }
-
         }
     }
 }

@@ -16,14 +16,20 @@ namespace Fields
 
         private System.Random _random;
         private float _currentTime = 0;
+        private bool _isPlaying = true;
 
         private void Awake()
         {
             _random = new System.Random(DateTime.Now.Millisecond);
+
+            EventManager.GameOverEvent += () => _isPlaying = false;
         }
 
         private void Update()
         {
+            // ゲームプレイ中でないなら何もしない
+            if (!_isPlaying) return;
+            
             if (_currentTime >= enemyPopInterval)
             {
                 var index = _random.Next(0, enemyDataTable.table.Count);

@@ -19,11 +19,13 @@
             <e p="EnemyDataTable.cs" t="Include" />
             <e p="EventManager.cs" t="Include" />
             <e p="GameData.cs" t="Include" />
+            <e p="SingletonMonoBehaviour.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
+            <e p="GameOverPanel.cs" t="Include" />
             <e p="Gun.cs" t="Include" />
             <e p="PlayerController.cs" t="Include" />
-            <e p="ScorePanel.cs" t="Include" />
+            <e p="StatusPanel.cs" t="Include" />
           </e>
         </e>
       </e>

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Systems;
+using UnityEngine;
 
 namespace Fields
 {
@@ -8,12 +9,16 @@ namespace Fields
         [SerializeField] private float scrollSpeed = 1f;
         private Sprite _sprite;
 
+        private bool _isPlaying = true;
+
         /// <summary>
         /// ゲーム開始時に呼ばれる処理
         /// </summary>
         private void Awake()
         {
             _sprite = gameObject.GetComponent<SpriteRenderer>().sprite;
+
+            EventManager.GameOverEvent += () => _isPlaying = false;
         }
 
         /// <summary>
@@ -21,6 +26,9 @@ namespace Fields
         /// </summary>
         private void Update()
         {
+            // ゲームプレイ中でないなら何もしない
+            if (!_isPlaying) return;
+            
             // 背景画像を左側に動かす
             transform.Translate(-0.1f * scrollSpeed, 0, 0);
         
