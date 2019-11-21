@@ -10,5 +10,13 @@ namespace VariousShooting
         {
             GameData.isPlayable = true;
         }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                Player.AddExperience(55);
+            }
+        }
     }
 }

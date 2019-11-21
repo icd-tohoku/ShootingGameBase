@@ -165,7 +165,15 @@ namespace VariousShooting
         /// <param name="point"></param>
         public static void AddExperience(int point)
         {
+            if (_level == _levelUpThresholds.Length)
+            {
+                Debug.Log("Level Maxなので経験値は破棄します。");
+                _experiencePoint = 0;
+                return;
+            }
+            
             _experiencePoint += point;
+            Debug.Log($"現在の経験値：{_experiencePoint}");
 
             // レベルMAXに到達していない かつ 経験値の総量が次のレベルに上がるための閾値を超えているなら
             if (_level-1 < _levelUpThresholds.Length && _experiencePoint >= _levelUpThresholds[_level - 1])
@@ -173,6 +181,7 @@ namespace VariousShooting
                 // レベルアップする
                 _experiencePoint -= _levelUpThresholds[_level - 1];
                 _level += 1;
+                Debug.Log($"Lv.{_level-1} -> Lv.{_level}");
             }
         }
 #endif

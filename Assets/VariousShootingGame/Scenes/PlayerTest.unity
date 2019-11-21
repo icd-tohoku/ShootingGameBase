@@ -337,7 +337,7 @@ MonoBehaviour:
   - {fileID: 5651622921375663364, guid: ba1da85010337a24482d3220c4859af9, type: 3}
   - {fileID: 3256044927310358561, guid: 09241174708d68340b05bbe7db78c591, type: 3}
   - {fileID: 3256044927310358561, guid: 4f05a732935526842a945c9b37282020, type: 3}
-  levelUpThresholds: 
+  levelUpThresholds: 64000000c80000002c01000090010000
   muzzle: {fileID: 1970964290}
   hpText: {fileID: 0}
   mpText: {fileID: 0}
@@ -572,7 +572,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1996418798}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.9519622, y: 0.26151657, z: -9.894531}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
