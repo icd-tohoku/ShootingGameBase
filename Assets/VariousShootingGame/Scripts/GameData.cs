@@ -6,6 +6,6 @@ namespace VariousShooting
 {
     public static class GameData
     {
-        public static bool isPlaying = false;
+        public static bool isPlayable = false;
     }
 }

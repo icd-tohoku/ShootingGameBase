@@ -30,8 +30,21 @@
         <e p="VariousShootingGame" t="Include">
           <e p="Scripts" t="Include">
             <e p="BackgroundScroller.cs" t="Include" />
-            <e p="BackgroundScrollTest.cs" t="Include" />
+            <e p="Bullet" t="Include">
+              <e p="LinearBullet.cs" t="Include" />
+              <e p="WaveBullet.cs" t="Include" />
+            </e>
+            <e p="BulletGenerator" t="Include">
+              <e p="SingleBulletGenerator.cs" t="Include" />
+              <e p="TripleBulletGenerator.cs" t="Include" />
+            </e>
             <e p="GameData.cs" t="Include" />
+            <e p="Player.cs" t="Include" />
+            <e p="Tag.cs" t="Include" />
+            <e p="Test" t="Include">
+              <e p="BackgroundScrollTest.cs" t="Include" />
+              <e p="PlayerTest.cs" t="Include" />
+            </e>
           </e>
         </e>
       </e>

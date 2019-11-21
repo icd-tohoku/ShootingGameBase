@@ -22,7 +22,7 @@ namespace VariousShooting
         private void Update()
         {
             // ゲームプレイ中でないなら何もしない
-            if (!GameData.isPlaying) return;
+            if (!GameData.isPlayable) return;
             
             // 背景画像を左側に動かす
             transform.Translate(-0.1f * scrollSpeed, 0, 0);

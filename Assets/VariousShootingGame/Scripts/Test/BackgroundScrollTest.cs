@@ -15,7 +15,7 @@ namespace VariousShooting
         
         private void Start()
         {
-            GameData.isPlaying = true;
+            GameData.isPlayable = true;
         }
 
         private void Update()

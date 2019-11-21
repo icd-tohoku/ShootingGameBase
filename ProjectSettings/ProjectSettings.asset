@@ -496,7 +496,8 @@ PlayerSettings:
   webGLCompressionFormat: 1
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    1: ENABLE_LEVEL;BUTTON_MAPPED_BULLET
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}
