@@ -22,7 +22,7 @@ namespace VariousShooting
             rb.useGravity = false;
             
             // 自身に前方向への力を加える
-            rb.AddForce(transform.right * speed, ForceMode.Impulse);
+            rb.AddForce(transform.forward * speed, ForceMode.Impulse);
         }
 
         private void Update()

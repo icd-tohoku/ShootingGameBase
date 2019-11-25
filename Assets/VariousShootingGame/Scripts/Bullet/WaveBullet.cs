@@ -26,7 +26,7 @@ namespace VariousShooting
             _rigidbody.useGravity = false;
             
             // 自身に前方向への力を加える
-            _rigidbody.AddForce(transform.right * speed, ForceMode.Impulse);
+            _rigidbody.AddForce(transform.forward * speed, ForceMode.Impulse);
         }
 
         private void FixedUpdate()

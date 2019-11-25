@@ -38,11 +38,16 @@
               <e p="SingleBulletGenerator.cs" t="Include" />
               <e p="TripleBulletGenerator.cs" t="Include" />
             </e>
+            <e p="Enemy" t="Include">
+              <e p="EnemyFactory.cs" t="Include" />
+              <e p="EnemyLv1.cs" t="Include" />
+            </e>
             <e p="GameData.cs" t="Include" />
             <e p="Player.cs" t="Include" />
             <e p="Tag.cs" t="Include" />
             <e p="Test" t="Include">
               <e p="BackgroundScrollTest.cs" t="Include" />
+              <e p="EnemyTest.cs" t="Include" />
               <e p="PlayerTest.cs" t="Include" />
             </e>
           </e>

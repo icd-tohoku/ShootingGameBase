@@ -8,34 +8,29 @@ namespace VariousShooting
 {
     public class Player : MonoBehaviour
     {
+        // 必須項目
         public GameObject[] bulletGenerators;
-        public int[] levelUpThresholds;
         public Transform muzzle;
-
-        public Text hpText = null;
-        public Text mpText = null;
-        public Text epText = null;
-        public Text levelText = null;
-
         private const float MoveSpeed = 0.1f;
-        private const int MaxHitPoint = 100;
-        private const int MaxMagicPoint = 100;
-        
-        private static int _hitPoint = MaxHitPoint;
-        private static int _magicPoint = 0;
-        private static int _experiencePoint = 0;
-        private static int _level = 1;
-
-        private static int[] _levelUpThresholds;
 
         // 連射関係
         public float continuousShootingInterval = 0.3f;
         private float _currentPressingTime = 0;
 
+        // HP関係
+        public Text hpText = null;
+
         // MP関係
-        private float mpTimer = 0;
-        private int MP上昇インターバル = 1;
-        private int MP上昇量 = 1;
+        public Text mpText = null;
+        private float _mpTimer = 0;
+        private int _mpIncrementInterval = 1;
+        private int _mpIncrementAmount = 1;
+
+        // レベル関係
+        public Text epText = null;
+        public Text levelText = null;
+        public int[] levelUpThresholds;
+        private static int[] _levelUpThresholds;
 
         private void Awake()
         {
@@ -79,7 +74,7 @@ namespace VariousShooting
             // ================================================================================
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                Fire(_level - 1);
+                Fire(GameData.level - 1);
             }
             
             if (Input.GetKey(KeyCode.Space))
@@ -87,7 +82,7 @@ namespace VariousShooting
                 if (_currentPressingTime > continuousShootingInterval)
                 {
                     // スペースボタンを一定時間以上押し続けた時
-                    Fire(_level - 1);
+                    Fire(GameData.level - 1);
                     _currentPressingTime = 0;
                 }
                 else
@@ -117,20 +112,20 @@ namespace VariousShooting
             // ================================================================================
             // 時間経過とともにMPが溜まっていく
             // ================================================================================
-            mpTimer += Time.deltaTime;
-            if (mpTimer > MP上昇インターバル)
+            _mpTimer += Time.deltaTime;
+            if (_mpTimer > _mpIncrementInterval)
             {
                 // MPを加算
-                _magicPoint += MP上昇量;
+                GameData.magicPoint += _mpIncrementAmount;
                 
                 // MP最大値を超えないように
-                if (_magicPoint >= MaxMagicPoint)
+                if (GameData.magicPoint >= GameData.MaxMagicPoint)
                 {
-                    _magicPoint = MaxHitPoint;
+                    GameData.magicPoint = GameData.MaxMagicPoint;
                 }
                 
                 // タイマーをリセット
-                mpTimer = 0;
+                _mpTimer = 0;
             }
         }
 
@@ -141,6 +136,8 @@ namespace VariousShooting
         {
             var bullet = Instantiate(bulletGenerators[index]);
             bullet.transform.position = muzzle.position;
+            bullet.transform.forward = Vector3.right;
+            ;
         }
 
         /// <summary>
@@ -149,9 +146,9 @@ namespace VariousShooting
         /// <param name="damage"></param>
         public void Damaged(int damage)
         {
-            _hitPoint -= damage;
+            GameData.hitPoint -= damage;
 
-            if (_hitPoint <= 0)
+            if (GameData.hitPoint <= 0)
             {
                 Debug.Log("Game Over");
                 GameData.isPlayable = false;
@@ -165,23 +162,23 @@ namespace VariousShooting
         /// <param name="point"></param>
         public static void AddExperience(int point)
         {
-            if (_level == _levelUpThresholds.Length)
+            if (GameData.level == _levelUpThresholds.Length)
             {
                 Debug.Log("Level Maxなので経験値は破棄します。");
-                _experiencePoint = 0;
+                GameData.experiencePoint = 0;
                 return;
             }
             
-            _experiencePoint += point;
-            Debug.Log($"現在の経験値：{_experiencePoint}");
+            GameData.experiencePoint += point;
+            Debug.Log($"現在の経験値：{GameData.experiencePoint}");
 
             // レベルMAXに到達していない かつ 経験値の総量が次のレベルに上がるための閾値を超えているなら
-            if (_level-1 < _levelUpThresholds.Length && _experiencePoint >= _levelUpThresholds[_level - 1])
+            if (GameData.level-1 < _levelUpThresholds.Length && GameData.experiencePoint >= _levelUpThresholds[GameData.level - 1])
             {
                 // レベルアップする
-                _experiencePoint -= _levelUpThresholds[_level - 1];
-                _level += 1;
-                Debug.Log($"Lv.{_level-1} -> Lv.{_level}");
+                GameData.experiencePoint -= _levelUpThresholds[GameData.level - 1];
+                GameData.level += 1;
+                Debug.Log($"Lv.{GameData.level-1} -> Lv.{GameData.level}");
             }
         }
 #endif

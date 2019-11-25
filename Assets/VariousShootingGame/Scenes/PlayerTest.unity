@@ -337,13 +337,13 @@ MonoBehaviour:
   - {fileID: 5651622921375663364, guid: ba1da85010337a24482d3220c4859af9, type: 3}
   - {fileID: 3256044927310358561, guid: 09241174708d68340b05bbe7db78c591, type: 3}
   - {fileID: 3256044927310358561, guid: 4f05a732935526842a945c9b37282020, type: 3}
-  levelUpThresholds: 64000000c80000002c01000090010000
   muzzle: {fileID: 1970964290}
+  continuousShootingInterval: 0.3
   hpText: {fileID: 0}
   mpText: {fileID: 0}
   epText: {fileID: 0}
   levelText: {fileID: 0}
-  continuousShootingInterval: 0.3
+  levelUpThresholds: 64000000c80000002c01000090010000
 --- !u!61 &988928165
 BoxCollider2D:
   m_ObjectHideFlags: 0
