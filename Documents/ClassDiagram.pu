@@ -1,0 +1,129 @@
+@startuml
+title ClassDiagram
+
+class Gun
+{
+    - GameObject bullet
+    - float bulletSpeed
+    - float continuousShootingInterval
+    - float _currentPressingTime
+
+    - void Update()
+    - void Fire()
+}
+
+class Bullet
+{
+    - int damage
+
+    - void OnEnable()
+    - IEnumerator DestroySelfCoroutine()
+    - void OnCollisionEnter(Collision other)
+}
+
+class EnemyFactory
+{
+    - EnemyDataTable enemyDataTable
+    - float enemyPopInterval
+    - Transform enemyPopAnchor
+    - System.Random _random
+    - float _currentTime
+    - bool _isPlaying
+
+    - void Awake()
+    - void Update()
+}
+
+class Enemy
+{
+    - int _hp
+    - int _defeatPoint
+
+    - void Awake()
+    - void Update()
+    - void OnDestroy()
+    - void DestroySelf()
+    - void Initialize(int hp, int defeatPoint)
+    + void Damaged(int damage)
+}
+
+class EnemyDataTable
+{
+    + List<EnemyData> table
+}
+
+class EnemyData
+{
+    + string Name
+    + int HP
+    + int DefeatPoint
+    + GameObject Model
+}
+
+class EventManager
+{
+    + {static} event Action<int> ScoreChangeEvent
+    + {static} event Action<int> LifeChangeEvent
+    + {static} event Action GameOverEvent
+
+    + {static} void InvokeScoreChangeEvent(int point)
+    + {static} void InvokeLifeChangeEvent(int life)
+    + {static} void InvokeGameOverEvent()
+}
+
+class GameData
+{
+    - int _score
+    - int _life
+
+    + void AddScore(int point)
+    + void ChangeLife(int change)
+}
+
+class GameOverPanel
+{
+    - GameObject gameOverPanel
+
+    - void Awake()
+    - void OnDestroy()
+    - void OnGameOver()
+    - void RestartGame()
+    - void QuitGame()
+}
+
+class StatusPanel
+{
+    - Text scoreText
+    - Text lifeText
+
+    - void Awake()
+    - void OnDestroy()
+    - void OnScoreChanged(int score)
+    - void OnLifeChanged(int life)
+}
+
+note top of Gun : Attached to "Gun" gameobject.\nThis class detects user's button input
+note bottom of Bullet : Attached to "Bullet" prefab
+note bottom of Enemy : Attached to each enemy prefabs
+note bottom of GameData : Singleton in the scene
+note bottom of EventManager : Static class
+note top of GameOverPanel : Control gameover window
+note top of StatusPanel : Control score and\n player's life point
+
+Gun --> Bullet : Instantiate and fire
+Bullet -right-> Enemy : Call "Damaged()"\n when collided with
+EnemyFactory ---> Enemy : Instantiate regularly
+EnemyFactory -right-> EnemyDataTable : Refer
+EnemyDataTable *-- EnemyData
+Enemy -right-> GameData : Change values
+GameData -right-> EventManager : Invoke each event
+
+GameOverPanel -down-> EventManager : Register event handler\n and observe
+StatusPanel -down-> EventManager
+
+EventManager .up.> GameOverPanel : Notify
+EventManager .up.> StatusPanel
+
+
+
+@enduml
